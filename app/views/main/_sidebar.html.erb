@@ -1,0 +1,7 @@
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <% JenkinsModules::Pipeline.all_names.split(' ').each do |pipeline| %>
+    <li><a href="/search?pipeline=<%= pipeline %>"><%= pipeline %></a></li>
+    <% end %>
+  </ul>
+</div>

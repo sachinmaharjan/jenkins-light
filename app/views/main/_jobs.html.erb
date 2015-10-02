@@ -1,0 +1,18 @@
+
+<div class="jenkins">
+  <div class="name"><strong class="labelname"><%= @json_response["name"] %></strong></div>
+  <div class="url"><strong class="labelname"><a href="<%= @json_response["url"] %>"><%= @json_response["url"] %></a></strong></div>
+  <div class="joblist">
+    <% @json_response["jobs"].each do |job|%>
+       <div class="job media">
+          <div class="media-left">
+            <div class="media-object color img-circle <%=job['color']%>"></div>
+          </div>
+          <div class="media-body">
+            <div class="jobname media-heading"><span><a href="<%= job["url"] %>"><%= job["name"] %></a></span></div>
+            <div class="url"><span><a href="<%= job["url"] %>"><%= job["url"] %></a></span></div>
+          </div>
+       </div>
+    <% end %>
+  </div>
+</div>

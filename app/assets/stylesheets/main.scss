@@ -1,0 +1,169 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$font-stack:  sans-serif;
+$red: #d43f3a;
+$blue: #2e6da4;
+$green: #4cae4c;
+$yellow: #eea236;
+$white: #fff;
+$black: #000;
+$header-bg: #dd4814;
+body {
+  font-family: $font-stack;
+  letter-spacing: .05em;
+  header {
+    background: #dd4814;
+    .container {
+      width: 100%;
+    }
+    &.navbar {
+      margin-bottom: 0px;
+    }
+    .navbar-brand {
+      color: $black;
+    }
+  }
+  #sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 0px;
+    width: 260px;
+    height: 100%;
+    margin-left: 0px;
+    overflow-y: auto;
+    background: #ebebeb;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    .sidebar-nav {
+      position: absolute;
+      top: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      width: 100%;
+      li {
+        text-indent: 20px;
+        line-height: 40px;
+          a {
+          display: block;
+          text-decoration: none;
+          color: $black;
+          &:hover {
+            text-decoration: none;
+            color: $header-bg;
+            background: $white;
+          }
+        }
+      }
+    }
+    .sidebar-nav > .sidebar-brand {
+      height: 65px;
+      font-size: 18px;
+      line-height: 60px;
+    }
+  }
+  .search-form {
+    width: 350px;
+    display: inline-block;
+    text-align: right;
+    position: fixed;
+    right: 30px;
+    padding-top: 10px;
+    .form-group {
+      .form-control {
+        width: 250px;
+      }
+      input {
+        display: inline-block;
+      }
+    }
+  }
+  .alert {
+    left: 260px;
+    position: fixed;
+    padding: 30px;
+    font-size: 30px;
+  }
+  .jenkins {
+    position: fixed;
+    left: 260px;
+    padding: 30px;
+    width: 100%;
+    overflow: scroll;
+    height: 100%;
+    .welcome {
+      font-size: 30px;
+      text-align: left;
+      padding-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .name {
+      font-size: 30px;
+    }
+    .url {
+      border-bottom: 1px solid #eeeeee;
+      margin-bottom: 30px;
+    }
+    .joblist  {
+      .job {
+        .jobname {
+          strong {
+
+          }
+          span {
+
+          }
+        }
+        .url {
+          margin-bottom: 5px;
+        }
+        .color {
+          height: 30px;
+          border-radius: 50%;
+          width: 30px;
+          &.red {
+            background-color: $red;
+          }
+          &.yellow {
+            background-color: $yellow;
+          }
+          &.blue {
+            background-color: $green;
+          }
+          &.green{
+            background-color: $green;
+          }
+          &.red_anime {
+            background: -webkit-linear-gradient(left, $red, $yellow); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(right, $red , $yellow); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(right, $red , $yellow); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(to right, $red , $yellow); /* Standard syntax */
+          }
+          &.blue_anime {
+            background: -webkit-linear-gradient(left, green , yellow); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(right, green , yellow); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(right, green , yellow); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(to right, green , yellow); /* Standard syntax */
+          }
+          &.green_anime {
+            background: -webkit-linear-gradient(left, $green , $yellow); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(right, $green , $yellow); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(right, $green , $yellow); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(to right, $green , $yellow); /* Standard syntax */
+          }
+          &.yellow_anime {
+            background: -webkit-linear-gradient(left, $yellow , $white); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(right, $yellow , $white); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(right, $yellow , $white); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(to right, $yellow , $white); /* Standard syntax */
+          }
+
+        }
+      }
+    }
+  }
+}

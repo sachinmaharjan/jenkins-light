@@ -1,0 +1,22 @@
+<%= render 'sidebar' %>
+<div class="jenkins">
+  <div class="row welcome">
+    Welcome to Blurb Jenkins
+  </div>
+  <div class="row">
+    <div class="joblist">
+      <% @pipeline_response.each do |pipeline| %>
+         <div class="job media">
+            <div class="media-left">
+              <div class="media-object color img-circle <%= pipeline['color']%>"></div>
+            </div>
+            <div class="media-body">
+              <div class="jobname media-heading">
+                <span><a href="<%= pipeline['url'] %>"><%= pipeline['name'] %></a></span>
+              </div>
+            </div>
+         </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+pipelines:
+  Blurby-Master-Jobs
+  Blurby-Master-PL
+  Blurby-Production-PL
+  Drupal-Master-PL
+  Drupal-Production-PL
+  Bookify-PL
+  Bookserve-Master-PL
+  Bookserve-Production-PL
+  Bookshare-PL
+  Booksmartdump-PL
+  Bookwizard-Master-PL
+  Bookwizard-Production-PL
+  Email-Service-PL
+  Feature-Service-PL
+  Hemingway-PL
+  Portkey-PL
+  Printer-Management-Service-PL
+  River-Master-PL
+  River-Production-PL
+  Session-Service-PL
+  Shipping-Service-PL
+  Website-PL
+  pdf_uploader_frontend-PL
