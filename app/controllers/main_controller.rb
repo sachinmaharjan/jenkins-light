@@ -14,6 +14,7 @@ class MainController < ApplicationController
         Rails.logger.error "Pipeline: #{pipeline} " + ex.message
       end
     end
+    @pipeline_response = @pipeline_response.sort_by {|h| h["color"]}.reverse
   end
 
   def search
