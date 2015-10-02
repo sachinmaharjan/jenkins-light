@@ -1,15 +1,19 @@
 class MainController < ApplicationController
   require 'open-uri'
   require 'pipeline'
+  WALL_PIPELINES = %w(Blurby-Master-PL Blurby-Production-PL Drupal-Master-PL)
 
   def index
     @pipeline_response = []
+    @wall_pipelines = []
     JenkinsModules::Pipeline.all_names.split(' ').each do |pipeline|
       begin
         response = open(pipeline_url(pipeline)).read
         @json_response = JSON.parse(response)
         distinct_colors = @json_response["jobs"].map {|k| k["color"]}.uniq
-        @pipeline_response << {"name" =>  pipeline, "url" => "/search?pipeline=#{pipeline}", "color" => current_status(distinct_colors) }
+        json_pipeline = {"name" =>  pipeline, "url" => "/search?pipeline=#{pipeline}", "color" => current_status(distinct_colors) }
+        @pipeline_response << json_pipeline
+        @wall_pipelines << json_pipeline if WALL_PIPELINES.include? json_pipeline["name"]
       rescue => ex
         Rails.logger.error "Pipeline: #{pipeline} " + ex.message
       end

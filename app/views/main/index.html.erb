@@ -1,7 +1,17 @@
 <%= render 'sidebar' %>
 <div class="jenkins">
   <div class="row welcome">
-    Welcome to Blurb Jenkins
+    <div>Welcome to Blurb Jenkins</div>
+    <div class="joblist wall">
+      <% @wall_pipelines.each do |pipeline| %>
+        <div class="job col-md-3">
+          <div class="color img-circle <%= pipeline['color']%>"></div>
+          <div class="jobname">
+            <span><a href="<%= pipeline['url'] %>"><%= pipeline['name'] %></a></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div class="row">
     <div class="joblist">
