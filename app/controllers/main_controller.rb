@@ -1,13 +1,12 @@
 class MainController < ApplicationController
   require 'open-uri'
   require 'pipeline'
-  
+
   def index
     @pipeline_response = []
     JenkinsModules::Pipeline.all_names.split(' ').each do |pipeline|
       begin
-        url = "http://jenkins.blurb.com/view/Pipelines/view/#{pipeline}/api/json"
-        response = open(url).read
+        response = open(pipeline_url(pipeline)).read
         @json_response = JSON.parse(response)
         distinct_colors = @json_response["jobs"].map {|k| k["color"]}.uniq
         @pipeline_response << {"name" =>  pipeline, "url" => "/search?pipeline=#{pipeline}", "color" => current_status(distinct_colors) }
@@ -20,9 +19,7 @@ class MainController < ApplicationController
   def search
     begin
       redirect_to index if params[:pipeline].blank?
-      pipeline = params[:pipeline]
-      url = "http://jenkins.blurb.com/view/Pipelines/view/#{pipeline}/api/json"
-      response = open(url).read
+      response = open(pipeline_url(params[:pipeline])).read
       @json_response = JSON.parse(response)
     rescue => ex
       Rails.logger.error "Pipeline: #{params[:pipeline]} " + ex.message
@@ -30,6 +27,10 @@ class MainController < ApplicationController
   end
 
   private
+  def pipeline_url(pipeline)
+    "http://jenkins.blurb.com/view/Pipelines/view/#{pipeline}/api/json"
+  end
+
   def current_status(colors)
     if colors.include? 'red'
       return 'red'
