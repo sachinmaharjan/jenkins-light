@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   root 'main#index'
   get '/' => 'main#index'
   get '/main' => 'main#index'
-  get '/production' => 'main#production'
-  get '/master' => 'main#master'
   get '/search' => 'main#search'
 
   # Example of regular route:
