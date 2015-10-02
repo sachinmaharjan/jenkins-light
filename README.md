@@ -1,5 +1,6 @@
 # jenkins-light
 
 ##Commands:
-bundle install
-rails server
+1. bundle install
+
+2. rails server
