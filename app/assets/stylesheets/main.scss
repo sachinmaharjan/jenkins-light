@@ -9,12 +9,12 @@ $green: #4cae4c;
 $yellow: #eea236;
 $white: #fff;
 $black: #000;
-$header-bg: #dd4814;
+$header-bg: #00abf1;
 body {
   font-family: $font-stack;
   letter-spacing: .05em;
   header {
-    background: #dd4814;
+    background: $header-bg;
     .container {
       width: 100%;
     }
